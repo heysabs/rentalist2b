@@ -18,7 +18,7 @@
 							<%= image_tag item.photos[0].image.url(:thumb) if item.photos.length > 0 %>
 						</div>
 						<div class="col-md-7">
-							<h4><%= item.item_name %></h4>
+							<h4><%= link_to item.item_name, item %></h4>
 						</div>
 						<div class="col-md-3 right">
 							<%= link_to "Update", edit_item_path(item), class: "btn btn-primary" %>

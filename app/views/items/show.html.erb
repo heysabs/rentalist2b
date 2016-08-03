@@ -38,12 +38,17 @@
 
 <!-- Main Info -->
 <div class="row">
-  <div class="col-md-12 text-center">
+  <div class="col-md-8 text-center">
     <h3><%= @item.item_name %></h3>
     <p>Description: <%= @item.description %>
     <p>Rate: $ <%= @item.price %> / day
     <p>Location: <%= @item.address %>
   </div>
+
+<div class="col-md-3">
+<!-- Reservation form -->
+<%= render 'bookings/form' %>
+</div>
 </div>
 
 <!-- Google Map -->
