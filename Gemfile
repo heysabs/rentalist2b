@@ -16,12 +16,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 
-gem 'devise',  '~> 4.0.0'
-gem 'paperclip'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'devise',  '~> 4.0.0'
+  gem 'paperclip'
 end
 
 group :development do
