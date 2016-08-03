@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @photos = @item.photos
   end
 
   def new
@@ -15,30 +16,53 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(item_params)
+
     if @item.save
-      redirect_to @item, notice: "Saved!"
+
+      if params[:images]
+        params[:images].each do |image|
+          @item.photos.create(image: image)
+        end
+      end
+
+      @photos = @item.photos
+      redirect_to edit_item_path(@item)
+      flash[:success] = "Review posted!"
     else
       render :new
     end
   end
 
   def edit
+    if current_user.id == @item.user.id
+      @photos = @item.photos
+    else
+      redirect_to root_path, notice: "You just don't do dat!"
+    end
   end
 
   def update
     if @item.update(item_params)
-      redirect_to @item, notice: "Updated!"
+
+      if params[:images]
+        params[:images].each do |image|
+          @item.photos.create(image: image)
+        end
+      end
+
+    flash[:success] = "Item details updated."
+    redirect_to edit_item_path(@item)
     else
       render :edit
     end
   end
 
   private
-  def set_item
-    @item = Item.find(params[:id])
-  end
+    def set_item
+      @item = Item.find(params[:id])
+    end
 
-  def item_params
-    params.require(:item).permit(:item_type, :item_name, :description, :price, :address)
-  end
+    def item_params
+      params.require(:item).permit(:item_type, :item_name, :description, :price, :address)
+    end
 end
