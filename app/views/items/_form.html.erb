@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-  List Your Item
+  Rent Your Item
   </div>
   <div class="panel-body">
     <div class="container">
-      <%= form_for @item do |f| %>
+      <%= form_for @item, :html => { multipart: true } do |f| %>
 
       <div class="row">
         <div class="col-md-4 select">
@@ -54,6 +54,19 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="btn btn-default btn-file">
+                <i class="fa fa-cloud-upload fa-lg"></i> Upload Photos
+                <%= file_field_tag "images[]", type: :file, multiple: true %>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="photos"><%= render 'photos/list' %></div>
 
       <div class="actions">
         <%= f.submit "Save", class: "btn btn-primary" %>
