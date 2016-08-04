@@ -62,15 +62,21 @@ select {
   width: 100%;
 }
 
+.clear-bottom {
+  margin-bottom: 20px;
+}
+
+#preview {
+  margin-bottom: 20px;
+}
+
 .booking-table td {
   width: 100%;
   border: 1px solid #dce0e0;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
-.wide {
-  width: 100%;
-}
 
 .price_tag {
   background-color: #606567;
@@ -78,6 +84,7 @@ select {
   font-size: 15px;
   padding: 10px;
   margin-bottom: 10px;
+  border-radius: 4px;
 }
 
 body {
