@@ -20,6 +20,7 @@ gem 'toastr-rails'
 gem 'paperclip'
 gem 'geocoder'
 gem 'jquery-ui-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'

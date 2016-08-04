@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get '/your_rentals' => 'bookings#your_rentals'
   get '/your_reservations' => 'bookings#your_reservations'
 
+  get '/search' => 'pages#search'
 
 end

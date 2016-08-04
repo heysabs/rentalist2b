@@ -57,6 +57,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    render 'test'
+  end
+
   private
     def set_item
       @item = Item.find(params[:id])
