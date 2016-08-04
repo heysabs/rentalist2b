@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
+  get '/preload' => 'bookings#preload'
+  get '/preview' => 'bookings#preview'
+
 end
