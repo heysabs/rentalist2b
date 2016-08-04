@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+			<li><%= link_to "Your Listings", items_path, class: "sidebar-link" %></li>
+			<li><%= link_to "Your Reservations", your_reservations_path %></li>
+      <li class="active"><%= link_to "Your Rentals", your_rentals_path, class: "sidebar-link" %></li>
+    </ul>
+	</div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Your Rentals
+			</div>
+			<div class="panel-body">
+
+        <% @rentals.each do |rental| %>
+					<div class="row">
+						<div class="col-md-2">
+							<%= rental.start_date.strftime('%v') %>
+						</div>
+						<div class="col-md-6">
+							<%= link_to item_path(rental.item) do %>
+								<%= image_tag rental.item.photos[0].image.url(:thumb) if rental.item.photos.length > 0 %>
+							<% end %>
+						</div>
+						<div class="col-md-2">
+              Rented from
+              <%= link_to user_path(rental.item.user) do %>
+								<%= rental.item.user.fullname %>
+							<% end %>
+						</div>
+						<div class="col-md-2 right">
+							<h4>$<%= rental.total %></h4>
+						</div>
+					</div>
+					<hr>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>
