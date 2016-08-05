@@ -20,7 +20,6 @@ gem 'toastr-rails'
 gem 'paperclip'
 gem 'geocoder'
 gem 'jquery-ui-rails'
-gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
@@ -32,6 +31,7 @@ group :development do
  gem 'listen', '3.0.8'
  gem 'spring', '1.7.2'
  gem 'spring-watcher-listen', '2.0.0'
+ gem 'rails-erd'
 end
 
 group :test do

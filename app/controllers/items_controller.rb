@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
       @photos = @item.photos
       redirect_to edit_item_path(@item)
-      flash[:success] = "Review posted!"
+      flash[:success] = "Item added!"
     else
       render :new
     end
