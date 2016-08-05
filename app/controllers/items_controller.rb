@@ -58,7 +58,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    render 'test'
+    Item.find(params[:id]).destroy
+    flash[:success] = "Item deleted"
+    redirect_to items_url
   end
 
   private
