@@ -54,16 +54,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  #paperclip S3
   config.paperclip_defaults = {
-      storage: :s3,
-      s3_region: ENV["ap-southeast-1"],
-      s3_credentials: {
-        s3_host_name: ENV["s3-ap-southeast-1.amazonaws.com"],
-        bucket: ENV["rentalist"],
-        access_key_id: ENV["AKIAJ737IOZKQPQHHU2A"],
-        secret_access_key: ENV["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"]
-        }
-      }
+    :storage => :s3,
+    :s3_host_name => 's3-ap-southeast-1.amazonaws.com',
+    :bucket => 'rentalist'
+  }
 
 end
