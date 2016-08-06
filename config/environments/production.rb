@@ -85,13 +85,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config/environments/production.rb
-    config.paperclip_defaults = {
-      storage: :s3,
-      s3_credentials: {
-        bucket: ENV.fetch('rentalist'),
-        access_key_id: ENV.fetch('AKIAJ737IOZKQPQHHU2A'),
-        secret_access_key: ENV.fetch('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'),
-        s3_region: ENV.fetch('ap-southeast-1'),
+  config.paperclip_defaults = {
+        :storage => :fog,
+        :fog_credentials => {
+          :provider => "AWS",
+          :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+          :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+        },
+        :fog_directory => ENV["S3_BUCKET_NAME"]
       }
-    }
 end
