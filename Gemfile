@@ -18,6 +18,8 @@ gem 'devise',  '~> 4.0.0'
 
 gem 'toastr-rails'
 gem 'paperclip'
+gem 'aws-sdk', '>= 2.0.34'
+gem 'envyable'
 gem 'geocoder'
 gem 'jquery-ui-rails'
 
