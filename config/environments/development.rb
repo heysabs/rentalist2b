@@ -55,9 +55,13 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_host_name => 's3-ap-southeast-1.amazonaws.com',
-    :bucket => 'rentalist'
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('rentalist'),
+      access_key_id: ENV.fetch('AKIAJ737IOZKQPQHHU2A'),
+      secret_access_key: ENV.fetch('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'),
+      s3_region: ENV.fetch('ap-southeast-1'),
+    }
   }
 
 end
